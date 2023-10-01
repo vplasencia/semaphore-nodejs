@@ -13,7 +13,7 @@ async function main() {
      * they can be recreated later using the same secret-message.
      * In this case the secret message is the number i converted to string.
      */
-    let identityCommitment
+    let identityCommitment: BigNumberish
     for (let i = 0; i < 10; i += 1) {
         identityCommitment = new Identity(i.toString()).commitment
         members.push(identityCommitment)
@@ -38,7 +38,7 @@ async function main() {
     })
 
     // verify the proof
-    const verified = await verifyProof(fullProof, group.depth)
+    const verified: boolean = await verifyProof(fullProof, group.depth)
 
     console.log("Proof verified: ", verified)
 }
