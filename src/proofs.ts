@@ -1,6 +1,6 @@
 import { Group, BigNumberish } from "@semaphore-protocol/group"
 import { Identity } from "@semaphore-protocol/identity"
-import { generateProof, FullProof, verifyProof } from "@semaphore-protocol/proof"
+import { generateProof, SemaphoreProof, verifyProof } from "@semaphore-protocol/proof"
 
 async function main() {
     /** Identities */
@@ -32,7 +32,7 @@ async function main() {
     const signal = 1
 
     // generate the proof
-    const fullProof: FullProof = await generateProof(new Identity("1"), group, externalNullifier, signal, {
+    const fullProof: SemaphoreProof = await generateProof(new Identity("1"), group, externalNullifier, signal, {
         zkeyFilePath: "./snark-artifacts/semaphore.zkey",
         wasmFilePath: "./snark-artifacts/semaphore.wasm"
     })
