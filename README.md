@@ -1,6 +1,6 @@
 # Semaphore in Node.js
 
-This is an example of project using Semaphore in Node.js.
+This is an example of project using [Semaphore](https://semaphore.pse.dev/) in Node.js.
 
 ## Run Locally
 
