@@ -1,12 +1,12 @@
 {
     "name": "semaphore-nodejs",
-    "packageManager": "yarn@3.6.2",
+    "packageManager": "yarn@4.1.0",
     "scripts": {
         "identities": "ts-node src/identities.ts",
         "groups": "ts-node src/groups.ts",
         "proofs": "ts-node src/proofs.ts",
         "download:snark-artifacts": "rimraf snark-artifacts && ts-node scripts/download-snark-artifacts.ts 16",
-        "lint": "eslint . --ext .js,.ts && yarn lint",
+        "lint": "eslint . --ext .js,.ts",
         "prettier": "prettier -c .",
         "prettier:write": "prettier -w ."
     },
