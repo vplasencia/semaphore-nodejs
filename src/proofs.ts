@@ -5,19 +5,16 @@ import { generateProof, SemaphoreProof, verifyProof } from "@semaphore-protocol/
 async function main() {
     /** Identities */
 
-    // array of members to add to the group
-    const members: BigNumberish[] = []
-
     /**
      * members are created using the deterministic way so that
      * they can be recreated later using the same secret-message.
      * In this case the secret message is the number i converted to string.
      */
-    let identityCommitment: BigNumberish
-    for (let i = 0; i < 10; i += 1) {
-        identityCommitment = new Identity(i.toString()).commitment
-        members.push(identityCommitment)
-    }
+
+    // array of members to add to the group
+    const members: BigNumberish[] = Array.from({ length: 10 }, (_, i) => new Identity(i.toString())).map(
+        ({ commitment }) => commitment
+    )
 
     /** Groups */
 
@@ -43,7 +40,9 @@ async function main() {
     console.log("Proof verified: ", verified)
 }
 
-main().catch((error) => {
-    console.error(error)
-    process.exitCode = 1
-})
+main()
+    .catch((error) => {
+        console.error(error)
+        process.exitCode = 1
+    })
+    .finally(() => process.exit())

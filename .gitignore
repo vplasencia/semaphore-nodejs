@@ -7,3 +7,5 @@
 
 node_modules
 snark-artifacts
+
+.DS_Store
